@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/go-vayu/vayu/internal/api/handlers"
-	_ "github.com/go-vayu/vayu/internal/swagger"
+	_ "github.com/go-vayu/vayu/internal/api/swagger"
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )

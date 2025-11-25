@@ -16,4 +16,4 @@ lint-fix:
 	@golangci-lint run --fix
 
 generate-swagger-docs:
-	@swag init -g ./internal/api/routes/routes.go -o ./internal/swagger
+	@swag init -g ./internal/api/routes/routes.go -o ./internal/api/swagger
