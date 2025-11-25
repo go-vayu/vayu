@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-vayu/vayu/internal/api/routes"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/spf13/cobra"
 )
 
@@ -18,6 +19,10 @@ var apiCmd = &cobra.Command{
 	Short: "Starts the rest api web server",
 	Run: func(cmd *cobra.Command, args []string) {
 		e := echo.New()
+
+		e.Use(middleware.Logger())
+		e.Use(middleware.Recover())
+
 		routes.RegisterRoutes(e)
 
 		if err := e.Start("localhost:8000"); err != nil {
