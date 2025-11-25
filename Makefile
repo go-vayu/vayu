@@ -1,4 +1,4 @@
-.PHONY: build run test lint lint-fix
+.PHONY: build run test lint lint-fix generate-swagger-docs
 
 build:
 	@go build -o ./target/main ./main.go
@@ -14,3 +14,6 @@ lint:
 
 lint-fix:
 	@golangci-lint run --fix
+
+generate-swagger-docs:
+	@swag init -g ./internal/api/routes/routes.go -o ./internal/swagger

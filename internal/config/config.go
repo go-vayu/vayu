@@ -1,6 +1,7 @@
 package config
 
 import (
+	"log/slog"
 	"strings"
 
 	"github.com/spf13/viper"
@@ -31,11 +32,17 @@ func initDefaultConfig() {
 func InitConfig() {
 	initDefaultConfig()
 
+	viper.SetEnvPrefix("vayu")
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viper.AutomaticEnv()
+
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath("./config")
+	viper.AddConfigPath("./internal/config")
 
-	viper.SetEnvPrefix("vayu")
-	viper.EnvKeyReplacer(strings.NewReplacer(".", "_"))
-	viper.AutomaticEnv()
+	err := viper.ReadInConfig()
+	if err != nil {
+		slog.Warn(err.Error())
+		slog.Warn("Using default config.")
+	}
 }

@@ -16,7 +16,8 @@ An open-source platform aggregating environmental data from public sources,
 making it freely accessible through a REST API and web interface.
 
 Empowering citizens with transparent environmental information.`,
-	Run: apiCmd.Run,
+	PreRun: apiCmd.PreRun,
+	Run:    apiCmd.Run,
 }
 
 func Execute() {

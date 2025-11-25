@@ -1,0 +1,25 @@
+basePath: /api/v1
+info:
+  contact: {}
+  description: This is the documentation for the Vayu API. Vayu is a open-source environmental
+    monitoring platform tracking air quality, emissions, and climate data across India.
+  license:
+    name: AGPL-3.0-or-later
+  title: Vayu API
+  version: "1.0"
+paths:
+  /aqi/{city}:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Get AQI data by city
+      tags:
+      - aqi
+swagger: "2.0"
