@@ -19,7 +19,7 @@ var apiCmd = &cobra.Command{
 	Use:   "api",
 	Short: "Starts the rest api web server",
 	PreRun: func(cmd *cobra.Command, args []string) {
-		initialize.FullInit()
+		initialize.Initialize()
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		e := echo.New()
