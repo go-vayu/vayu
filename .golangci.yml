@@ -1,0 +1,33 @@
+version: "2"
+
+run:
+  timeout: 3m
+
+linters:
+  enable:
+    - contextcheck
+    - err113
+    - errcheck
+    - gocritic
+    - gosec
+    - govet
+    - gocyclo
+    - bodyclose
+    - nilerr
+    - nilnesserr
+    - noctx
+    - unused
+    - unparam
+    - revive
+    - misspell
+    - sqlclosecheck
+    - staticcheck
+
+  exclusions:
+    presets:
+      - common-false-positives
+    rules:
+      - path: _test\.go
+        linters:
+          - errcheck
+          - gosec

@@ -1,3 +1,4 @@
+// Package cmd provides CLI commands for the application.
 package cmd
 
 import (
@@ -20,6 +21,7 @@ Empowering citizens with transparent environmental information.`,
 	Run:    apiCmd.Run,
 }
 
+// Execute starts the application
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

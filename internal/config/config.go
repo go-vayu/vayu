@@ -1,3 +1,4 @@
+// Package config provides application configuration.
 package config
 
 import (
@@ -7,28 +8,34 @@ import (
 	"github.com/spf13/viper"
 )
 
+// Key represents a configuration key.
 type Key string
 
+// Configuration keys for the application.
 const (
-	OPENAQ_API_KEY Key = `openaq.apikey`
+	OpenAQAPIKey Key = `openaq.apikey` //nolint:gosec
 )
 
+// Get returns the configuration value.
 func (k Key) Get() any {
 	return viper.Get(string(k))
 }
 
+// GetString returns the configuration value as a string.
 func (k Key) GetString() string {
 	return viper.GetString(string(k))
 }
 
+// Set sets the configuration value.
 func (k Key) Set(value any) {
 	viper.SetDefault(string(k), value)
 }
 
 func initDefaultConfig() {
-	OPENAQ_API_KEY.Set("")
+	OpenAQAPIKey.Set("")
 }
 
+// InitConfig initializes the configuration.
 func InitConfig() {
 	initDefaultConfig()
 

@@ -1,3 +1,4 @@
+// Package initialize handles application initialization.
 package initialize
 
 import (
@@ -9,6 +10,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
+// InitAPI initializes and starts the API server.
 func InitAPI() {
 	e := echo.New()
 

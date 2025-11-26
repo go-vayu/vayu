@@ -1,3 +1,4 @@
+// Package main is the entry point for the vayu application.
 package main
 
 import (
