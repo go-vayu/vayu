@@ -12,11 +12,11 @@ import (
 
 func InitDB() (*xorm.Engine, error) {
 	connStr := fmt.Sprintf(
-		"host=%s port=%d user=%s password=%s dbname=%s sslmode=%s",
-		config.DatabaseHost.GetString(),
-		config.DatabasePort.GetInt(),
+		"postgres://%s:%s@%s:%d/%s?sslmode=%s",
 		config.DatabaseUser.GetString(),
 		config.DatabasePassword.GetString(),
+		config.DatabaseHost.GetString(),
+		config.DatabasePort.GetInt(),
 		config.DatabaseDatabase.GetString(),
 		config.DatabaseSslMode.GetString(),
 	)

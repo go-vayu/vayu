@@ -9,6 +9,8 @@ import (
 var migrations = []*xormigrate.Migration{}
 
 func Migrate(x *xorm.Engine) error {
+	migrations = append(migrations, createCitiesTable0001)
+
 	m := xormigrate.New(x, migrations)
 
 	return m.Migrate()
