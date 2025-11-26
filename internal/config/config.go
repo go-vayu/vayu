@@ -13,7 +13,8 @@ type Key string
 
 // Configuration keys for the application.
 const (
-	OpenAQAPIKey Key = `openaq.apikey` //nolint:gosec
+	// #nosec
+	OpenAQAPIKey Key = `openaq.apikey`
 )
 
 // Get returns the configuration value.
