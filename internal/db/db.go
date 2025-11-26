@@ -8,6 +8,7 @@ import (
 	"github.com/go-vayu/vayu/internal/config"
 	_ "github.com/lib/pq"
 	"xorm.io/xorm"
+	"xorm.io/xorm/names"
 )
 
 func InitDB() (*xorm.Engine, error) {
@@ -25,6 +26,8 @@ func InitDB() (*xorm.Engine, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	engine.SetMapper(names.LintGonicMapper)
 
 	engine.SetMaxIdleConns(config.DatabaseMaxIdleConnections.GetInt())
 	engine.SetMaxOpenConns(config.DatabaseMaxOpenConnections.GetInt())

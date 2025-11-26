@@ -3,6 +3,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"log/slog"
 	"net/http"
 
 	"github.com/go-vayu/vayu/internal/config"
@@ -22,7 +23,7 @@ type AQIHandler struct {
 // @Success 200 {string} string
 // @Router /aqi/{cityID} [get]
 func (h *AQIHandler) GetAQIByCityID(c echo.Context) error {
-	req, err := http.NewRequest(http.MethodGet, "https://api.openaq.org/v3/locations?countries_id=9", nil)
+	req, err := http.NewRequestWithContext(c.Request().Context(), http.MethodGet, "https://api.openaq.org/v3/locations?countries_id=9", nil)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, nil)
 	}
@@ -32,7 +33,12 @@ func (h *AQIHandler) GetAQIByCityID(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, nil)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		err = resp.Body.Close()
+		if err != nil {
+			slog.Info(err.Error())
+		}
+	}()
 
 	var result any
 	err = json.NewDecoder(resp.Body).Decode(&result)

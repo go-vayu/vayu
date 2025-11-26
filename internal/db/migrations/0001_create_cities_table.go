@@ -8,7 +8,7 @@ import (
 )
 
 type city0001 struct {
-	Id        int64     `json:"id"`
+	ID        int64     `json:"id"`
 	Name      string    `xorm:"not null" json:"name"`
 	State     string    `xorm:"not null" json:"state"`
 	Latitude  float64   `xorm:"not null" json:"latitude"`
