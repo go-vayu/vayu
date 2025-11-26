@@ -9,6 +9,7 @@ require (
 	github.com/swaggo/echo-swagger v1.4.1
 	github.com/swaggo/swag v1.16.6
 	src.techknowlogick.com/xormigrate v1.7.1
+	xorm.io/xorm v1.3.3
 )
 
 require (
@@ -55,5 +56,4 @@ require (
 	golang.org/x/tools v0.35.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	xorm.io/builder v0.3.13 // indirect
-	xorm.io/xorm v1.3.3 // indirect
 )
