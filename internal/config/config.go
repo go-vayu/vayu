@@ -52,7 +52,7 @@ func initDefaultConfig() {
 	DatabaseHost.setDefault("localhost")
 	DatabasePort.setDefault(5432)
 	DatabaseUser.setDefault("vayu")
-	DatabasePassword.setDefault("")
+	DatabasePassword.setDefault("password")
 	DatabaseDatabase.setDefault("vayu")
 	DatabaseMaxOpenConnections.setDefault(100)
 	DatabaseMaxIdleConnections.setDefault(50)

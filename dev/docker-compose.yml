@@ -1,0 +1,24 @@
+services:
+  pgsql:
+    image: postgres:18-alpine
+    restart: always
+    ports:
+      - ${DB_PORT:-5432}:5432
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_USER: ${DB_USER:-vayu}
+      POSTGRES_DB: ${DB_NAME:-vayu}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:8.2-alpine
+    restart: always
+    ports:
+      - ${CACHE_PORT:-6379}:6379
+    volumes:
+      - cache_data:/data
+
+volumes:
+  pg_data:
+  cache_data:
