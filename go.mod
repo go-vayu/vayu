@@ -4,6 +4,7 @@ go 1.25.3
 
 require (
 	github.com/labstack/echo/v4 v4.13.4
+	github.com/lib/pq v1.10.7
 	github.com/spf13/cobra v1.10.1
 	github.com/spf13/viper v1.21.0
 	github.com/swaggo/echo-swagger v1.4.1

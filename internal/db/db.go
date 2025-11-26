@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/go-vayu/vayu/internal/config"
+	_ "github.com/lib/pq"
 	"xorm.io/xorm"
 )
 

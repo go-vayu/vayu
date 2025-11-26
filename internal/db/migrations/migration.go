@@ -8,6 +8,8 @@ import (
 
 var migrations = []*xormigrate.Migration{}
 
-func Migrate(x *xorm.Engine) {
-	//
+func Migrate(x *xorm.Engine) error {
+	m := xormigrate.New(x, migrations)
+
+	return m.Migrate()
 }

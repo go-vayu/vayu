@@ -6,10 +6,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func init() {
-	rootCmd.AddCommand(apiCmd)
-}
-
 var apiCmd = &cobra.Command{
 	Use:   "api",
 	Short: "Starts the rest api web server",

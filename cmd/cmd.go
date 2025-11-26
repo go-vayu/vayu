@@ -23,6 +23,8 @@ Empowering citizens with transparent environmental information.`,
 
 // Execute starts the application
 func Execute() {
+	rootCmd.AddCommand(apiCmd)
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
