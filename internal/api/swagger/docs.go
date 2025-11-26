@@ -18,7 +18,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/aqi/{city}": {
+        "/aqi/{cityID}": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -30,6 +30,15 @@ const docTemplate = `{
                     "aqi"
                 ],
                 "summary": "Get AQI data by city",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "The City ID",
+                        "name": "cityID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",

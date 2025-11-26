@@ -15,6 +15,16 @@ type Key string
 const (
 	// #nosec
 	OpenAQAPIKey Key = `openaq.apikey`
+
+	DatabaseHost                  Key = `database.host`
+	DatabasePort                  Key = `database.port`
+	DatabaseUser                  Key = `database.user`
+	DatabasePassword              Key = `database.password`
+	DatabaseDatabase              Key = `database.database`
+	DatabaseMaxOpenConnections    Key = `database.maxopenconnections`
+	DatabaseMaxIdleConnections    Key = `database.maxidleconnections`
+	DatabaseMaxConnectionLifetime Key = `database.maxconnectionlifetime`
+	DatabaseSslMode               Key = `database.sslmode`
 )
 
 // Get returns the configuration value.
@@ -27,13 +37,27 @@ func (k Key) GetString() string {
 	return viper.GetString(string(k))
 }
 
-// Set sets the configuration value.
-func (k Key) Set(value any) {
+// GetInt returns the configuration value as a int.
+func (k Key) GetInt() int {
+	return viper.GetInt(string(k))
+}
+
+func (k Key) setDefault(value any) {
 	viper.SetDefault(string(k), value)
 }
 
 func initDefaultConfig() {
-	OpenAQAPIKey.Set("")
+	OpenAQAPIKey.setDefault("")
+
+	DatabaseHost.setDefault("localhost")
+	DatabasePort.setDefault(5432)
+	DatabaseUser.setDefault("vayu")
+	DatabasePassword.setDefault("")
+	DatabaseDatabase.setDefault("vayu")
+	DatabaseMaxOpenConnections.setDefault(100)
+	DatabaseMaxIdleConnections.setDefault(50)
+	DatabaseMaxConnectionLifetime.setDefault(10000)
+	DatabaseSslMode.setDefault("disable")
 }
 
 // InitConfig initializes the configuration.

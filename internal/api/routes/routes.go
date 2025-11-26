@@ -21,5 +21,5 @@ func RegisterRoutes(e *echo.Echo) {
 
 	aqiHandler := &handlers.AQIHandler{}
 
-	a.GET("/aqi/{cityID}", aqiHandler.GetAQIByCityID)
+	a.GET("/aqi/:cityID", aqiHandler.GetAQIByCityID)
 }
